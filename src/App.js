@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -101,12 +101,14 @@ class App extends Component {
     }
 
     return (
+      <StyleRoot>
       <div className="App">
         <h1>Hi!! I am a react developer</h1>
         <p className={classes.join(' ')}>Hii Guys!!! How are You?</p>
         <button style={style} onClick={this.togglePersonHandler}>Toggle Persons</button>
         {persons}
       </div>
+      </StyleRoot>
     );
 
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi!!!, I\'m a react developer'));
