@@ -5,15 +5,38 @@ import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons';
 
 class App extends Component {
-  state = {
-    persons: [
-       {id: "aj01", name: "Ajay", age: 19},
-       {id: "aj02", name: "Nancy", age: 18},
-       {id: "aj03", name: "Raj", age: 18}
-     ],
-     otherState: 'something',
-     showPersons: false
+  constructor( props ) {
+    super(props);
+    console.log("[App.js] inside constructor", props);
+    this.state = {
+                  persons: [
+                     {id: "aj01", name: "Ajay", age: 19},
+                     {id: "aj02", name: "Nancy", age: 18},
+                     {id: "aj03", name: "Raj", age: 18}
+                   ],
+                   otherState: 'something',
+                   showPersons: false
+            };
   }
+
+
+  componentWillMount() {
+    console.log("[App.js] inside componentWillMount");
+  }
+
+  componentDidMount() {
+    console.log("[App.js] inside componentDidMount");
+  }
+
+  // state = {
+  //   persons: [
+  //      {id: "aj01", name: "Ajay", age: 19},
+  //      {id: "aj02", name: "Nancy", age: 18},
+  //      {id: "aj03", name: "Raj", age: 18}
+  //    ],
+  //    otherState: 'something',
+  //    showPersons: false
+  // }
 
   // switchNameHandler = (newName) => {
     // console.log("Hi,bro!!!!!")
@@ -56,6 +79,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("[App.js] inside render");
     let persons = null;
 
     if(this.state.showPersons) {
