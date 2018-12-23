@@ -3,7 +3,8 @@ import classes from './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 // import Radium, { StyleRoot } from 'radium';
 import Persons from '../components/Persons/Persons';
-import WithClass from '../hoc/WithClass';
+import withClass from '../hoc/withClass';
+import Aux from '../hoc/Auxes';
 
 class App extends PureComponent {
   constructor( props ) {
@@ -106,7 +107,7 @@ class App extends PureComponent {
     }
 
     return (
-      <WithClass classes={classes.App}>
+      <Aux>
         <button onClick={()=>{this.setState({showPersons: true})}}>Show Pesons</button>
         <Cockpit
           appTitle = {this.props.title}
@@ -114,11 +115,11 @@ class App extends PureComponent {
           persons = {this.state.persons}
           clicked = {this.togglePersonHandler}/>
         {persons}
-      </WithClass>
+      </Aux>
     );
 
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi!!!, I\'m a react developer'));
   }
 }
 
-export default App;
+export default withClass(App, classes.App);
