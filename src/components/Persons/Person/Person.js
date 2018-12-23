@@ -31,4 +31,4 @@ class Person extends Component {
 	}
 }
 
-export default withClass(Person, classes.Persons);
+export default withClass(Person, classes.Person);
